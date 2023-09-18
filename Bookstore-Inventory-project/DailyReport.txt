@@ -1,0 +1,6 @@
+*********** Daily Report**********
+ID	 Name	 numPurchases	 isFeePaid
+
+Total purchases: 0
+Items purchased: 
+[]
