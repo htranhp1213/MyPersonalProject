@@ -1,6 +1,6 @@
 # Welcome to my little corner for personal projects. 
 
-## Most of them were inspired by academic courses and my interests
+### Most of them were inspired by academic courses and my interests
 
 ## Projects:
 1. Bookstore inventory (Java)
