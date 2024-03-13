@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="intro-box">
+    <h2>Order now</h2>
+    <link rel="stylesheet" href="/static/css/ordernow.css">
+    <p class="paracont">
+        We kindly ask that you pick up your orders within the specified 2-hour window. Please provide all order details in the customization section to ensure accuracy. To maintain the freshness of our delightful treats, any unclaimed orders will be available for sale after this timeframe. Kindly note that all payments must be made in-store.
+    </p>
+</div>
+
+<form action="/place_order" method="post">
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" name="first_name" required><br>
+
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" name="last_name" required><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="selectBakery1">Select Bakery (Required):</label>
+    <select id="selectBakery1" name="selectBakery1" required>
+        <option value="" disabled selected>Select bakery</option>
+        {% for category, items in bakeries.items() %}
+            <optgroup label="{{ category }}">
+                {% for item in items %}
+                    <option value="{{ item.name }}">{{ item.name }} - ${{ item.price }}</option>
+                {% endfor %}
+            </optgroup>
+        {% endfor %}
+    </select>
+    <label for="quantity1">Quantity:</label>
+    <input type="number" id="quantity1" name="quantity1" min="1" value="1" required><br>
+
+    <label for="selectBakery2">Select Bakery (Optional):</label>
+    <select id="selectBakery2" name="selectBakery2">
+        <option value="" disabled selected>None</option>
+        {% for category, items in bakeries.items() %}
+            <optgroup label="{{ category }}">
+                {% for item in items %}
+                    <option value="{{ item.name }}">{{ item.name }} - ${{ item.price }}</option>
+                {% endfor %}
+            </optgroup>
+        {% endfor %}
+    </select>
+    <label for="quantity2">Quantity:</label>
+    <input type="number" id="quantity2" name="quantity2" min="0" value="0"><br>
+
+    <label for="selectBakery3">Select Bakery (Optional):</label>
+    <select id="selectBakery3" name="selectBakery3">
+        <option value="" disabled selected>None</option>
+        {% for category, items in bakeries.items() %}
+            <optgroup label="{{ category }}">
+                {% for item in items %}
+                    <option value="{{ item.name }}">{{ item.name }} - ${{ item.price }}</option>
+                {% endfor %}
+            </optgroup>
+        {% endfor %}
+    </select>
+    <label for="quantity3">Quantity:</label>
+    <input type="number" id="quantity3" name="quantity3" min="0" value="0"><br>
+
+    <label for="pickUpDate">Pick up date:</label>
+    <input type="date" id="pickUpDate" name="pickUpDate" required><br>
+
+    <label for="customizationNote">Customization Note:</label><br>
+    <textarea id="customizationNote" name="customizationNote" rows="4" cols="50"></textarea><br>
+
+    <!-- Add customization options here (e.g., checkboxes, radio buttons, etc.) -->
+
+    <input type="submit" value="Submit Order">
+</form>
+{% endblock %}

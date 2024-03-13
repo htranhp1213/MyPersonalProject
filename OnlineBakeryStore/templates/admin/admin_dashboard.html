@@ -1,0 +1,17 @@
+{% extends "admin/admin_layout.html" %}
+
+{% block content %}
+
+<h1 class="admin-header">Luna's Bakery Review</h1>
+
+{% for rev in reviews %}
+<div class="admin-reviewcontent">
+    <a>First Name: {{ rev.first_name}},</a>
+    <a>Last Name: {{ rev.last_name}},</a>
+    <a> Email: {{rev.email}}</a>
+    <p> reviews: {{ rev.review }}</p>
+</div>
+
+{% endfor %}
+
+{% endblock %}
